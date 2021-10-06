@@ -6,7 +6,7 @@ namespace cse210_tc04
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Hello World! ");
         }
     }
 }
