@@ -6,21 +6,59 @@ namespace cse210_tc04
     {
         public int card1 = 0;
         public int card2 = 0;
-        public int score = 0;
+        public int _score = 300;
         public bool keepPlaying = true;
+        public Card _dealer = new Card();
         public void StartGame()
         {
-            throw new NotImplementedException();
+            while(keepPlaying)
+            {
+                GetInputs();
+                if (keepPlaying)
+                {
+                    DoUpdates();
+                    DoOutputs();
+                }
+            }
         }
         void GetInputs()
         {
-            throw new NotImplementedException();
+             if (!_dealer.IsFirstCard())
+            {
+                Console.WriteLine("Roll again? [y/n] ");
+                string choice = Console.ReadLine();
+                keepPlaying = (choice == "y");
+            }
         }
-        void DoOutputs()
+        void getGuess()
         {
-            throw new NotImplementedException();
+            Console.Write("Higher or lower? [h/l]  ");
+            string guess = Console.ReadLine().ToLower();
+            if (card1 < card2 && guess == "h")
+            {
+                _score += 100;
+            }
+            else if (card1 > card2 && guess == "l")
+            {
+                _score += 100;
+            }
+            else
+            {
+                _score -= 75;
+            }
         }
         void DoUpdates()
+        {
+            card1 = _dealer.DrawCard();
+            card2 = _dealer.DrawCard();
+            Console.WriteLine($"The card is: {card1}");
+            getGuess();
+            if (_score <= 0)
+            {
+                keepPlaying = false;
+            }
+        }
+        void DoOutputs()
         {
             throw new NotImplementedException();
         }
