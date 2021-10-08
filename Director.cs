@@ -8,9 +8,18 @@ namespace cse210_tc04
         public int card2 = 0;
         public int score = 0;
         public bool keepPlaying = true;
+        public Card _card = new Card();
         public void StartGame()
         {
-            throw new NotImplementedException();
+            while(keepPlaying)
+            {
+                GetInputs();
+                if (keepPlaying)
+                {
+                    DoUpdates();
+                    DoOutputs();
+                }
+            }
         }
         void GetInputs()
         {
