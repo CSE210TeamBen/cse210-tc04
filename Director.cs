@@ -28,6 +28,10 @@ namespace cse210_tc04
                 Console.WriteLine("Roll again? [y/n] ");
                 string choice = Console.ReadLine();
                 keepPlaying = (choice == "y");
+                if (!keepPlaying)
+                {
+                    Console.WriteLine("Game Over.");
+                }
             }
         }
         void getGuess()
@@ -55,12 +59,18 @@ namespace cse210_tc04
             getGuess();
             if (_score <= 0)
             {
+                _score =0;
                 keepPlaying = false;
             }
         }
         void DoOutputs()
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"Next card was: {card2}");
+            Console.WriteLine($"Your score is: {_score}");
+            if (!keepPlaying)
+            {
+                Console.WriteLine("Game Over.");
+            }
         }
 
     }
