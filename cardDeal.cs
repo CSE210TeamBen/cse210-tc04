@@ -4,9 +4,26 @@ namespace cse210_tc04
 {
     class Card
     {
-        static void Main(string[] args)
+        int roundNum = 0;
+        public bool IsFirstCard()
         {
-            throw new NotImplementedException();
+                if (roundNum == 0)
+                {
+                    roundNum ++;
+                    return true;
+                }
+                else
+                {
+                    roundNum ++;
+                    return false;
+                }
         }
+        public int DrawCard()
+        {
+            Random ran = new Random();
+            return ran.Next(1,14);
+        }
+        
+        
     }
 }
